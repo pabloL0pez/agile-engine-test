@@ -5,7 +5,8 @@
   <button class="format-action" type="button" (click)="formatText('indent')">IDNT</button>
   <button class="format-action" type="button" (click)="formatText('outdent')">ODNT</button>
 
-  <label for="synonyms">Synonyms for: {{ currentSelection }}</label>
+  <label *ngIf="synonyms.length > 0" for="synonyms">{{ synonyms.length }} synonyms for: {{ currentSelection }}</label>
+  <label *ngIf="synonyms.length <= 0" for="synonyms">No synonyms found for: {{ currentSelection }}</label>
   <select id="synonyms" [formControl]="synonymFormControl">
     <option *ngFor="let synonym of synonyms" [value]="synonym.word">
       {{ synonym.word }}
