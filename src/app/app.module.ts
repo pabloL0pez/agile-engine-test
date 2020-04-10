@@ -4,9 +4,12 @@ import { AppComponent } from './app.component';
 import { FileComponent } from './file/file.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextService } from './text-service/text.service';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DatamuseService } from './services/datamuse.service';
+import { FormatService } from './services/format-service';
 
 @NgModule({
   declarations: [
@@ -18,10 +21,14 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
-    TextService
+    TextService,
+    DatamuseService,
+    FormatService,
   ],
   bootstrap: [
     AppComponent

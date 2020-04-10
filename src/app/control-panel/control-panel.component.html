@@ -1,5 +1,14 @@
 <div class="format-actions">
-  <button class="format-action" type="button"><b>B</b></button>
-  <button class="format-action" type="button"><i>I</i></button>
-  <button class="format-action" type="button"><u>U</u></button>
+  <button class="format-action" type="button" (click)="formatText('bold')"><b>B</b></button>
+  <button class="format-action" type="button" (click)="formatText('italic')"><i>I</i></button>
+  <button class="format-action" type="button" (click)="formatText('underline')"><u>U</u></button>
+  <button class="format-action" type="button" (click)="formatText('indent')">IDNT</button>
+  <button class="format-action" type="button" (click)="formatText('outdent')">ODNT</button>
+
+  <label for="synonyms">Synonyms for: {{ currentSelection }}</label>
+  <select id="synonyms" [formControl]="synonymFormControl">
+    <option *ngFor="let synonym of synonyms" [value]="synonym.word">
+      {{ synonym.word }}
+    </option>
+  </select>
 </div>
